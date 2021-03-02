@@ -1,9 +1,18 @@
 const { Post } = require("../models");
 
-exports.list = async (req, res) => {
+exports.userPosts = async (req, res) => {
   try {
     const { userId } = req.params;
     const posts = await Post.findAll({ where: { userId } });
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.list = async (req, res) => {
+  try {
+    const posts = await Post.findAll();
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ message: error.message });

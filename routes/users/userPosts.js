@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const postController = require("../controllers/postController");
+const router = require("express").Router({ mergeParams: true });
+const postController = require("../../controllers/postController");
 
-router.get("/", postController.list);
+router.get("/", postController.userPosts);
 router.get("/:postId", postController.findById);
 router.post("/", postController.insert);
 router.patch("/:postId", postController.patchById);

@@ -1,15 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { sequelize } = require("./models/index");
-const userRouter = require("./routes/users");
-const postRouter = require("./routes/posts");
-
+const { sequelize } = require("./models");
+const routes = require("./routes");
 const app = express();
 
 app.use(bodyParser.json());
 
-app.use("/users", userRouter);
-app.use("/users/:userId/posts", postRouter);
+app.use("/", routes);
 
 const connect = async () => {
   try {
