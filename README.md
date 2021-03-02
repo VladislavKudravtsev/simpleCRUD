@@ -1,6 +1,6 @@
 # simpleCRUD
 
-## Installation and Usage
+## Installation
 
 Prerequisites: [Node.js](https://nodejs.org "Node.js"), [mysql](https://www.mysql.com)
 
@@ -41,3 +41,19 @@ After running `npm install ` you need to configure DB settings in **config.json*
 Initialize DB: `npm run db:init`
 
 Run app: `npm start`
+
+## Usage
+
+Available requests:
+
+**Users**
+
+`GET /users`
+`POST /users`
+`GET POST DELETE /users/:userId`
+
+**Posts**
+
+`GET /users/:userId/posts`
+`POST /users/:userId/posts`
+`GET POST DELETE /users/:useId/posts/:postId`
