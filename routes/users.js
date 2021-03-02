@@ -1,0 +1,10 @@
+const router = require("express").Router();
+const userController = require("../controllers/userController");
+
+router.get("/", userController.list);
+router.get("/:userId", userController.findById);
+router.post("/", userController.insert);
+router.patch("/:userId", userController.patchById);
+router.delete("/:userId", userController.removeById);
+
+module.exports = router;
