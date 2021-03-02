@@ -8,7 +8,7 @@ You can install dependencies using npm: `npm install `
 
 ## Configuration
 
-After running `npm install ` you need to configure DB settings in **config.json**:
+After running `npm install ` you need to configure DB settings in **config/config.json**:
 
 ```json
 {
