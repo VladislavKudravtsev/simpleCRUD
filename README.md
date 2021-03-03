@@ -50,10 +50,16 @@ Available requests:
 
 `GET /users`
 `POST /users`
-`GET POST DELETE /users/:userId`
+`GET PATCH DELETE /users/:userId`
 
-**Posts**
+**User Posts**
 
 `GET /users/:userId/posts`
 `POST /users/:userId/posts`
-`GET POST DELETE /users/:useId/posts/:postId`
+`GET PATCH DELETE /users/:useId/posts/:postId`
+
+**Posts**
+
+`GET /posts`
+`POST /posts`
+`GET PATCH DELETE /posts/:postId`
