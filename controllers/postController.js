@@ -2,7 +2,9 @@ const { Post } = require("../models");
 
 exports.userPosts = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const { userId } = req.query;
+    console.log({ userId });
+    console.log(req.query);
     const posts = await Post.findAll({ where: { userId } });
     res.status(200).json(posts);
   } catch (error) {
@@ -12,7 +14,8 @@ exports.userPosts = async (req, res) => {
 
 exports.list = async (req, res) => {
   try {
-    const posts = await Post.findAll();
+    const { userId } = req.query;
+    const posts = await Post.findAll({ where: { userId } });
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -33,9 +36,9 @@ exports.findById = async (req, res) => {
 
 exports.insert = async (req, res) => {
   try {
-    req.body.userId = await req.params.userId;
-    await Post.create(req.body);
-    res.status(201).end();
+    //req.body.userId = req.params.userId;
+    const post = await Post.create(req.body);
+    res.status(201).json(post);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
