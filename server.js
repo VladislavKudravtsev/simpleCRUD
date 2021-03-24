@@ -2,8 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { sequelize } = require("./models");
 const routes = require("./routes");
+const cors = require("cors");
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/", routes);
@@ -19,7 +21,7 @@ const connect = async () => {
 
 const init = async () => {
   await connect();
-  app.listen(3000);
+  app.listen(8080);
 };
 
 init();

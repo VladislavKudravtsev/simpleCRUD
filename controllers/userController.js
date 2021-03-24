@@ -11,7 +11,7 @@ exports.list = async (req, res) => {
 
 exports.findById = async (req, res) => {
   try {
-    const user = await User.findByPk(req.params.userId);
+    const user = await User.findByPk(req.params.userId, { include: [Post] });
     if (!user) {
       return res.status(404).end();
     }
@@ -23,8 +23,8 @@ exports.findById = async (req, res) => {
 
 exports.insert = async (req, res) => {
   try {
-    await User.create(req.body);
-    res.status(201).end();
+    const user = await User.create(req.body);
+    res.status(201).json(user.id);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
